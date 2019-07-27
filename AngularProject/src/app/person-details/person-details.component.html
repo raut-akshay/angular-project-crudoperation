@@ -1,0 +1,45 @@
+<div class="contanier">
+    <form>
+      <fieldset>
+        <legend >Person Details</legend>
+        <dl>
+          <!-- <dt>Id:-</dt>
+          <dd><input type="text" class="form-control" ngModel #Id="ngModel" name="Id"></dd> -->
+          <dt>Name:-</dt>
+          <dd><input type="text" class="form-control" [(ngModel)]="Name" name="Name"></dd>
+          <dt>Age:-</dt>
+          <dd><input type="text" class="form-control" [(ngModel)]="Age" name="Age"></dd>
+          <dt>Gender:-</dt>
+          <dd><input type="text" class="form-control" [(ngModel)]="Gender" name="Gender"></dd>
+          <dt>Mobilenumber:-</dt>
+          <dd><input type="text" class="form-control" [(ngModel)]="Mobile" name="Mobileno"></dd>
+        </dl>
+      </fieldset>
+      <button *ngIf="!flag" class="text-center" (click)="addperson()">Add</button>
+      <button *ngIf="flag" class="text-center" (click)="updatePerson()">Update</button>
+    </form>
+    <table align="center" border="2" width="500">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Mobileno</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of info; let i=index" >
+          <td>{{i+1}}</td>
+          <td>{{item.Name}}</td>
+          <td>{{item.Age}}</td>
+          <td>{{item.Gender}}</td>
+          <td>{{item.Mobileno}}</td>
+          <button type="button" (click)="putperson(item)">Update</button>
+          <button type="button" (click)="deleteperson(item._id)"> delete</button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
